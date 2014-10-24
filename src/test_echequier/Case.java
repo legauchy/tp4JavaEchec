@@ -67,6 +67,9 @@ class Case extends JPanel implements MouseListener{
 	click=true; // la case se souvient que la souris a cliqué sur elle
 	clicked=true; // on informe les autres cases que le clique est enclenché
 	setBackground(Color.green);  // on change la couleur de la case
+        for(Case c : this.P.listAllDestination()){
+            c.setBackground(Color.green);
+        }
         // on sauvegarde la référence de la case 
         // que la souris survole actuellement avec le clique enclenche
 	destination=this; 
@@ -94,7 +97,9 @@ class Case extends JPanel implements MouseListener{
 	
 	// on remet la couleur d'origine de la case destination
 	destination.ResetColor();
-	
+	for(Case c : this.P.listAllDestination()){
+            c.ResetColor();
+        }
 	// si la case d'origine contient une piece 
 	// on essaie de bouger cette pièce vers la case destination
 	// ce déplacement réussit si on respecte les contraintes
