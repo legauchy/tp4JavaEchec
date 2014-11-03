@@ -35,6 +35,7 @@ class Case extends JPanel implements MouseListener{
     public Piece P;
     public final int x,y;
     private static Case destination=null;
+    private Color saveColor;
     
     Case(Color c, Echiquier E, int x, int y, Piece P){
 	// setBackground affecte la couleur de fond
@@ -67,8 +68,10 @@ class Case extends JPanel implements MouseListener{
 	click=true; // la case se souvient que la souris a cliqué sur elle
 	clicked=true; // on informe les autres cases que le clique est enclenché
 	setBackground(Color.green);  // on change la couleur de la case
-        for(Case c : this.P.listAllDestination()){
-            c.setBackground(Color.green);
+        if (this.P != null) {
+            for(Case c : this.P.listAllDestination()){
+                c.setBackground(Color.green);
+            }
         }
         // on sauvegarde la référence de la case 
         // que la souris survole actuellement avec le clique enclenche
@@ -80,6 +83,7 @@ class Case extends JPanel implements MouseListener{
     
     // lorsqu'on entre dans une case avec le clique enclenché
     public void mouseEntered(MouseEvent e) {
+        saveColor = getBackground();
 	if(!click && clicked) setBackground(Color.cyan); // on change la couleur 
 	if( clicked)  destination=this; // et on met à jour la destination
     }
@@ -97,8 +101,10 @@ class Case extends JPanel implements MouseListener{
 	
 	// on remet la couleur d'origine de la case destination
 	destination.ResetColor();
-	for(Case c : this.P.listAllDestination()){
-            c.ResetColor();
+        if (this.P != null) {
+            for(Case c : this.P.listAllDestination()){
+                c.ResetColor();
+            }
         }
 	// si la case d'origine contient une piece 
 	// on essaie de bouger cette pièce vers la case destination
@@ -111,7 +117,11 @@ class Case extends JPanel implements MouseListener{
     
     // évènement sur sortie de la souris d'une case
     public void mouseExited(MouseEvent e) {
-	if(!click) ResetColor();
+        if(!click && clicked) {
+            setBackground(saveColor);
+        } else if (!click) {
+            ResetColor();
+        }
     }
     
     // la méthode paintComponent gère 
