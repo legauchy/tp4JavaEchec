@@ -29,11 +29,6 @@ class Reine extends Piece {
     }
 
     @Override
-    public String toString() {
-        return "Reine";
-    }
-
-    @Override
     public ArrayList<Case> listAllDestination() {
         Tour tour = new Tour(this.echiquier, this.maCase, this.isBlue);
         Fou fou = new Fou(this.echiquier, this.maCase, this.isBlue);

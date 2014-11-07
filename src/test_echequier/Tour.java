@@ -27,12 +27,7 @@ class Tour extends Piece {
         } catch (IOException e) {
         }
     }
-
-    @Override
-    public String toString() {
-        return "Tour";
-    }
-
+    
     @Override
     public ArrayList<Case> listAllDestination() {
         ArrayList<Case> cases = new ArrayList<>();

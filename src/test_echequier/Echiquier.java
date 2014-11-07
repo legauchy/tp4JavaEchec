@@ -127,29 +127,29 @@ class Echiquier extends JFrame implements ActionListener {
 	tour=!tour;
 	if(tour) {
             if (echecEtMat()) {
-                etiquette.setText("Echec et Mat, le  joueur rouge a gagné");
+                etiquette.setText("Echec et Mat, le  joueur noir a gagné");
             } else if(echec()) {
-                etiquette.setText("Autour des bleus - Roi en echec");
+                etiquette.setText("Au tour des blancs - Roi en echec");
             } else {
-                etiquette.setText("Autour des bleus");
+                etiquette.setText("Au tour des blancs");
             }
         }
         else {
 	    if (echecEtMat()) {
-                etiquette.setText("Echec et Mat, le  joueur bleu a gagné");
+                etiquette.setText("Echec et Mat, le  joueur blanc a gagné");
             } else if(echec()) {
-                etiquette.setText("Autour des rouges - Roi en echec");
+                etiquette.setText("Au tour des noirs - Roi en echec");
             } else {
-                etiquette.setText("Autour des rouges");
+                etiquette.setText("Au tour des noirs");
             }
         }
     }
     
     private void NouvellePartie(){
 	// création d'une nouvelle partie
-	// on affiche "Autour des bleus"
-	etiquette.setText("Autour des bleus");
-	// les bleus commencent donc
+	// on affiche "Au tour des blancs"
+	etiquette.setText("Au tour des blancs");
+	// les blancs commencent donc
 	// tour est initialisé à vrai
 	tour=true;
 	

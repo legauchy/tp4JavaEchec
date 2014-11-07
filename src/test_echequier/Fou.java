@@ -29,11 +29,6 @@ class Fou extends Piece {
     }
 
     @Override
-    public String toString() {
-        return "Fou";
-    }
-
-    @Override
     public ArrayList<Case> listAllDestination() {
         ArrayList<Case> cases = new ArrayList<>();
         Case tmp;

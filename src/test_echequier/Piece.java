@@ -8,9 +8,9 @@ import java.util.ArrayList;
  * @author Gauchy Anthony - Lefevre Henry
  */
 public abstract class Piece {
-    public boolean isBlue;
-    public Echiquier echiquier;
-    public Case maCase;
+    protected boolean isBlue;
+    protected Echiquier echiquier;
+    protected Case maCase;
     protected Image my_image;
     
     public Piece(Echiquier aThis, Case aCase, boolean b) {
@@ -26,7 +26,7 @@ public abstract class Piece {
         }
     };
     
-    public  boolean isCoupOK(Case destination) {
+    public boolean isCoupOK(Case destination) {
         if(this.echiquier.getTour() != this.isBlue) {
             
             return false;

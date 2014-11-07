@@ -27,12 +27,7 @@ class Roi extends Piece {
         } catch (IOException e) {
         }
     }
-
-    @Override
-    public String toString() {
-        return "Roi";
-    }
-
+    
     @Override
     public ArrayList<Case> listAllDestination() {
         ArrayList<Case> cases = new ArrayList<>();
